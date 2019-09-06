@@ -1,5 +1,8 @@
 const createSign = require('../src/createSign.js');
 
+const DATE_NOW =  1567745074817;
+const DATE_STAMP = "2019-09-06T04:44:34.817Z";
+
 test('output sign', () => {
 
   //single
@@ -14,10 +17,10 @@ test('output sign', () => {
         ToAddress: 'bebel street',
 
 		SignatureMethod: 'HMAC-SHA1',
-		SignatureNonce: 1567745074817,
+		SignatureNonce: DATE_NOW,
 		SignatureVersion: '1.0',
 		TemplateCode: undefined,
-		Timestamp: "2019-09-06T04:44:34.817Z",
+		Timestamp: DATE_STAMP,
 		Version: '2015-11-23'
 	}, 2)).toMatch(/./);
 	
@@ -33,10 +36,10 @@ test('output sign', () => {
 	   ReceiversName: ['zhaoliu', 'wangwu'],
 
 	   SignatureMethod: 'HMAC-SHA1',
-	   SignatureNonce: 1567745074817,
+	   SignatureNonce: DATE_NOW,
 	   SignatureVersion: '1.0',
 	   TemplateCode: undefined,
-	   Timestamp: "2019-09-06T04:44:34.817Z",
+	   Timestamp: DATE_STAMP,
 	   Version: '2015-11-23'
 	}, 2)).toMatch(/./);
 });

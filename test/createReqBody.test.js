@@ -1,5 +1,9 @@
 const createReqBody = require('../src/createReqBody.js');
 
+
+const DATE_NOW =  1567745074817;
+const DATE_STAMP = "2019-09-06T04:44:34.817Z";
+
 test('output reqBody', () => {
    
    //single
@@ -14,10 +18,10 @@ test('output reqBody', () => {
 //        ToAddress: 'bebel street',
 //
 //		SignatureMethod: 'HMAC-SHA1',
-//		SignatureNonce: 1567745074817,
+//		SignatureNonce: DATE_NOW,
 //		SignatureVersion: '1.0',
 //		TemplateCode: undefined,
-//		Timestamp: "2019-09-06T04:44:34.817Z",
+//		Timestamp: DATE_STAMP,
 //		Version: '2015-11-23'
 //	}, 2)).toMatch(/&/);
 	
@@ -33,10 +37,10 @@ test('output reqBody', () => {
 	   ReceiversName: ['zhaoliu', 'wangwu'],
 
 	   SignatureMethod: 'HMAC-SHA1',
-	   SignatureNonce: 1567745074817,
+	   SignatureNonce: DATE_NOW,
 	   SignatureVersion: '1.0',
 	   TemplateCode: undefined,
-	   Timestamp: "2019-09-06T04:44:34.817Z",
+	   Timestamp: DATE_STAMP,
 	   Version: '2015-11-23'
 	}, 2)).toMatch(/&/);
 

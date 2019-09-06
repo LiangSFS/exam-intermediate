@@ -24,7 +24,7 @@ test("some key information of config output param", async() => {
 //   expect(data1).toEqual({});
 
      //single
-   const {url, reqBody, cb} = intermediate({accessKeyID: 1, accessKeySecret: 2, accountName: "zhangsan", action: 'single', toAddress: 'bebel street' }, res => { //console.log(res)
+   const {url, reqBody, cb} = intermediate({accessKeyID: 1, accessKeySecret: 2, accountName: "zhangsan", action: 'single', toAddress: 'bebel street' }, res => { console.log(res)
    });
 
    let data = await axios.post(url, reqBody, {
