@@ -56,13 +56,13 @@ module.exports = function (config, cb) {
 //    });
 
     //console.log(reqBody, axios);
-   console.log("error end");
+   //console.log("error end");
 //   return await axios.post(url, reqBody, {
 //     headers: {
 //            "Content-Type": "application/x-www-form-urlencoded"
 //        }
 //   }).catch( err => cb(err));
    
-    console.log({url, reqBody, cb});
+    //console.log({url, reqBody, cb});
    return {url, reqBody, cb};
 };

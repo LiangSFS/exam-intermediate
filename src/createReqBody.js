@@ -12,4 +12,4 @@ module.exports = function createReqBody(param, accessKeySecret) {
    console.log(reqBody.join("&"));
 
    return reqBody.join("&");
-}
+};

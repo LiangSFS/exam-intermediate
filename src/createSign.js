@@ -2,7 +2,7 @@ const crypto  = require("crypto");
 
 module.exports = function  createSign(param, accessKeySecret) {
     var signStr = [];
-    for (var i in param) {
+    for (let i in param) {
         if ({}.hasOwnProperty.call(param, i)) {
           signStr.push(encodeURIComponent(i)+"="+encodeURIComponent(param[i]));
         }
