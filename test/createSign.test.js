@@ -1,7 +1,7 @@
 const createSign = require('../src/createSign.js');
 
-const DATE_NOW =  1567745074817;
-const DATE_STAMP = "2019-09-06T04:44:34.817Z";
+const DATE_NOW =  Date.now();
+const DATE_STAMP = new Date().toISOString();
 
 test('output sign', () => {
 
