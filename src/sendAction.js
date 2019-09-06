@@ -26,7 +26,7 @@ module.exports = function sendAction(config, errorMsg, {nonce, date}) {
         ...param,
        ReplyToAddress:!!config.replyToAddress,
        ToAddress:config.toAddress
-      }
+      };
        config.fromAlias && (param.FromAlias = config.fromAlias);
        config.subject && (param.Subject = config.subject);
        config.htmlBody && (param.HtmlBody = config.htmlBody);
@@ -43,7 +43,7 @@ module.exports = function sendAction(config, errorMsg, {nonce, date}) {
         ...param,
         TemplateName:config.templateName,
         ReceiversName:config.receiversName
-      }
+      };
       config.tagName && (param.TagName = config.tagName);
      break;
    default: 
