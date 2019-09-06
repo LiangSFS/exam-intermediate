@@ -13,7 +13,7 @@ module.exports = function (config, cb) {
     const nonce           = Date.now();
     const date            = new Date();
     const errorMsg = [];
-   let param = {};
+    let param = {};
     config = config || {};
      
     !config.accessKeyID && errorMsg.push("accessKeyID required");
@@ -28,10 +28,12 @@ module.exports = function (config, cb) {
    switch (reqAction.code)
    {
     case "ERROR_ACTION":
-        return  cb(reqAction.msg, null);
+        cb(reqAction.msg, null);
+        return  ;
       break;
     case "ERROR_INPUT":
-        return  cb(reqAction.errorMsg);
+        cb(reqAction.errorMsg);
+        return  ;
       break;
      case "SUCCESS_MESSAGE":
          param = reqAction.param;

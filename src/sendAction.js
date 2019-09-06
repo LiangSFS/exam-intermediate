@@ -50,8 +50,9 @@ module.exports = function sendAction(config, errorMsg, {nonce, date}) {
        return { code: "ERROR_ACTION", msg: "error action" };
   }
 
-  if (errorMsg.length) return { code: "ERROR_INPUT", errorMsg: errorMsg.join(",") };  
-
+  if (errorMsg.length) {
+    return { code: "ERROR_INPUT", errorMsg: errorMsg.join(",") };  
+  }
  return { code: "SUCCESS_MESSAGE", param};
 
 };
