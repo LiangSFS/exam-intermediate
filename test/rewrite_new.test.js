@@ -6,9 +6,9 @@ const axios = require("axios");
 test("less key information of config output errorMsg", () => {
 
    expect(intermediate({}, res =>  console.log(res) )).toBeUndefined();
-   expect(intermediate({accessKeyID: 1}, res => console.log(res) )).toBeUndefined();
+   expect(intermediate({accessKeyID: 1}, (res) => console.log(res) )).toBeUndefined();
    
-   expect(intermediate({accessKeyID: 1, accessKeySecret: 2, accountName: "zhangsan" }, res => { console.log(res) })).toBeUndefined();
+   expect(intermediate({accessKeyID: 1, accessKeySecret: 2, accountName: "zhangsan" }, (res) =>  console.log(res) )).toBeUndefined();
 
 });
 
@@ -16,7 +16,7 @@ test("some key information of config output param", async() => {
 
 
 //   //single
-//   let data = intermediate({accessKeyID: 1, accessKeySecret: 2, accountName: "zhangsan", action: "single", toAddress: "bebel street" }, res => { console.log(res) });
+//   let data = intermediate({accessKeyID: 1, accessKeySecret: 2, accountName: "zhangsan", action: "single", toAddress: "bebel street" }, (res) =>  console.log(res) );
 //   expect(data).toEqual({});
 //   
 //   //batch
@@ -24,21 +24,21 @@ test("some key information of config output param", async() => {
 //   expect(data1).toEqual({});
 
      //single
-   const {url, reqBody, cb} = intermediate({accessKeyID: 1, accessKeySecret: 2, accountName: "zhangsan", action: "single", toAddress: "bebel street" }, res => { console.log(res)
-   });
+   const {url, reqBody, cb} = intermediate({accessKeyID: 1, accessKeySecret: 2, accountName: "zhangsan", action: "single", toAddress: "bebel street" }, (res) =>  console.log(res)
+   );
 
    let data = await axios.post(url, reqBody, {
      headers: {
             "Content-Type": "application/x-www-form-urlencoded"
         }
-   }).catch( err => cb(err));
+   }).catch( (err) => cb(err));
 
     //expect(data).toEqual({});
    expect(data).toBeUndefined();
 
    //batch
-//   let {url, reqBody, cb} = intermediate({accessKeyID: 1, accessKeySecret: 2, accountName: "zhangsan", action: "batch", templateName: "hire info", receiversName: ["zhaoliu", "wangwu"] }, res => { console.log(res) 
-//   });
+//   let {url, reqBody, cb} = intermediate({accessKeyID: 1, accessKeySecret: 2, accountName: "zhangsan", action: "batch", templateName: "hire info", receiversName: ["zhaoliu", "wangwu"] }, (res) =>  console.log(res) 
+//   );
 //    console.log(url, reqBody, cb )
 //    axios.post(url, reqBody, {
 //     headers: {
@@ -47,7 +47,7 @@ test("some key information of config output param", async() => {
 //   }).then(data => {
 //      console.log(data);
 //     expect(data).toEqual({});
-//   }, err => console.log(err)).catch( err => cb(err));
+//   }, err => console.log(err)).catch( (err) => cb(err));
 
 });
 

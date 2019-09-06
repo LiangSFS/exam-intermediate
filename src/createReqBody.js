@@ -9,7 +9,7 @@ module.exports = function createReqBody(param, accessKeySecret) {
         reqBody.push(i+"="+param[i]);
     }
 
-   console.log(reqBody.join("&"));
+   //console.log(reqBody.join("&"));
 
    return reqBody.join("&");
 };
