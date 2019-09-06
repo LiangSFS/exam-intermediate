@@ -30,11 +30,9 @@ module.exports = function (config, cb) {
     case "ERROR_ACTION":
         cb(reqAction.msg, null);
         return  {};
-      break;
     case "ERROR_INPUT":
         cb(reqAction.errorMsg);
         return  {};
-      break;
      case "SUCCESS_MESSAGE":
          param = reqAction.param;
       break;

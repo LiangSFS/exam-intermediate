@@ -1,10 +1,24 @@
 const crypto  = require("crypto");
 
 module.exports = function  createSign(param, accessKeySecret) {
+    param = {
+      AccessKeyId: 1,
+      Format: "JSON",
+      AccountName: "zhangsan",
+      AddressType: 0,
+      SignatureMethod: "HMAC-SHA1",
+      SignatureNonce: Date.now(),
+      SignatureVersion: "1.0",
+      TemplateCode: 1,
+      Timestamp: new Date().toISOString(),
+      Version: "2015-11-23",
+      ...param
+    };
     var signStr = [];
     for (let i in param) {
         if ({}.hasOwnProperty.call(param, i)) {
-          signStr.push(encodeURIComponent(i)+"="+encodeURIComponent(param[i]));
+          let encodeEachParam = encodeURIComponent(i) + "=" + encodeURIComponent(param[i]);
+          signStr.push(encodeEachParam);
         }
     }
     signStr.sort();
