@@ -17,7 +17,7 @@ module.exports = function  createSign(param, accessKeySecret) {
     var signStr = [];
     for (let i in param) {
         if ({}.hasOwnProperty.call(param, i)) {
-          let encodeEachParam = param[i] && encodeURIComponent(i) + "=" + encodeURIComponent(param[i]);
+          let encodeEachParam = param[i]?"":encodeURIComponent(i) + "=" + encodeURIComponent(param[i]);
           signStr.push(encodeEachParam);
         }
     }

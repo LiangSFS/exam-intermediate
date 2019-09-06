@@ -21,7 +21,7 @@ module.exports = function createReqBody(param, accessKeySecret) {
     var reqBody = [signature];
     for (let i in param) {
         if ({}.hasOwnProperty.call(param, i)) {
-          let eachParam = param[i] &&  i + "=" + param[i];
+          let eachParam = param[i]?"":i + "=" + param[i];
           reqBody.push(eachParam);
         }
     }
