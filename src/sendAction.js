@@ -18,14 +18,13 @@ module.exports = function sendAction(config, errorMsg, {nonce, date}) {
   switch (config.action)
   {
     case "single":
-        !config.toAddress &&  errorMsg.push("toAddress required");
+       !config.toAddress &&  errorMsg.push("toAddress required");
 
-       if (errorMsg.length) {
-          return { code: "ERROR_INPUT", errorMsg: errorMsg.join(",") };  
-        }
+       //if (errorMsg.length) return { code: "ERROR_INPUT", errorMsg: errorMsg.join(",") };  
+        
        param = {
         ...param,
-        ReplyToAddress:!!config.replyToAddress,
+       ReplyToAddress:!!config.replyToAddress,
        ToAddress:config.toAddress
       }
        config.fromAlias && (param.FromAlias = config.fromAlias);
@@ -35,16 +34,15 @@ module.exports = function sendAction(config, errorMsg, {nonce, date}) {
      break;
     case "batch":
        !config.templateName && errorMsg.push("templateName required"); 
-        !config.receiversName && errorMsg.push("receiversName required");
+       !config.receiversName && errorMsg.push("receiversName required");
         
       //errorMsg.length && break;
-        if (errorMsg.length) {
-           return { code: "ERROR_INPUT", errorMsg: errorMsg.join(",") };  
-        }
+       // if (errorMsg.length) return { code: "ERROR_INPUT", errorMsg: errorMsg.join(",") };  
+      
       param = {
         ...param,
         TemplateName:config.templateName,
-         ReceiversName:config.receiversName
+        ReceiversName:config.receiversName
       }
       config.tagName && (param.TagName = config.tagName);
      break;
@@ -52,10 +50,8 @@ module.exports = function sendAction(config, errorMsg, {nonce, date}) {
        return { code: "ERROR_ACTION", msg: "error action" };
   }
 
-//  if (errorMsg.length) {
-//      return { code: "ERROR_INPUT", errorMsg: errorMsg.join(",") };  
-//  }
+  if (errorMsg.length) return { code: "ERROR_INPUT", errorMsg: errorMsg.join(",") };  
 
  return { code: "SUCCESS_MESSAGE", param};
 
-}
+};

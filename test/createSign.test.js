@@ -20,7 +20,7 @@ test("output sign", () => {
       SignatureMethod: "HMAC-SHA1",
       SignatureNonce: DATE_NOW,
       SignatureVersion: "1.0",
-      TemplateCode: undefined,
+      TemplateCode: 1,
       Timestamp: DATE_STAMP,
       Version: "2015-11-23"
    }, 2)).toMatch(/./);
@@ -39,7 +39,7 @@ test("output sign", () => {
       SignatureMethod: "HMAC-SHA1",
       SignatureNonce: DATE_NOW,
       SignatureVersion: "1.0",
-      TemplateCode: undefined,
+      TemplateCode: 1,
       Timestamp: DATE_STAMP,
       Version: "2015-11-23"
    }, 2)).toMatch(/./);
